@@ -2,3 +2,101 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div id="qrCode">
+    <div class="row">
+        <div class="col-lg-1">
+            <input id="id" name="id" type="number" class="form-control" min="1" value="1" />
+        </div>
+        <div class="col-lg-11 row">
+            <button id="songsBySingerId" class="btn btn-success">Select songs by singer id</button>
+            <button id="songsByAlbumId" class="btn btn-primary">Select songs by album id</button>
+            <button id="albumsBySingerId" class="btn btn-danger">Select albums by singer id</button>
+        </div>
+    </div>
+</div>
+<script src="~/lib/Microsoft.jQuery.Unobtrusive.Ajax/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $('#songsBySingerId').click(function songsBySingerId () {
+        var singerid = $('input[name="id"]').val();
+        $.ajax({
+            type: 'GET',
+            url: 'Home/ConvertToJsonSongsTakingBySingerId',
+            data: { singerId: singerid },
+            dataType: 'json',
+            success: function (data) {
+                var table = document.getElementById("Table");
+                table.innerHTML = "<tr><th >SongId</th ><th>Name</th><th>Text</th><th>SingerId</th><th>AlbumId</th></tr >";
+                var tr;  
+                for (var i = 0; i < data.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + data[i].Id + "</td>");
+                    tr.append("<td>" + data[i].Name + "</td>");
+                    tr.append("<td>" + data[i].Text + "</td>");
+                    tr.append("<td>" + data[i].SingerId + "</td>");
+                    tr.append("<td>" + data[i].AlbumId + "</td>");
+                    $('table').append(tr);
+                }
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    });
+
+    $('#songsByAlbumId').click(function songsByAlbumId() {
+        var albumid = $('input[name="id"]').val();
+        $.ajax({
+            type: 'GET',
+            url: 'Home/ConvertToJsonSongsTakingByAlbumId',
+            data: { albumId: albumid },
+            dataType: 'json',
+            success: function (data) {
+                var table = document.getElementById("Table");
+                table.innerHTML = "<tr><th >SongId</th ><th>Name</th><th>Text</th><th>SingerId</th><th>AlbumId</th></tr >";
+                var tr;
+                for (var i = 0; i < data.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + data[i].Id + "</td>");
+                    tr.append("<td>" + data[i].Name + "</td>");
+                    tr.append("<td>" + data[i].Text + "</td>");
+                    tr.append("<td>" + data[i].SingerId + "</td>");
+                    tr.append("<td>" + data[i].AlbumId + "</td>");
+                    $('table').append(tr);
+                }
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    });
+
+    $('#albumsBySingerId').click(function albumsBySingerId() {
+        var singerid = $('input[name="id"]').val();
+        $.ajax({
+            type: 'GET',
+            url: 'Home/ConvertToJsonAlbumsTakingBySingerId',
+            data: { singerId: singerid },
+            dataType: 'json',
+            success: function (data) {
+                var table = document.getElementById("Table");
+                table.innerHTML = "<tr><th >AlbumId</th ><th>Name</th><th>SingerId</th></tr >";
+                var tr;
+                for (var i = 0; i < data.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + data[i].Id + "</td>");
+                    tr.append("<td>" + data[i].Name + "</td>");
+                    tr.append("<td>" + data[i].SingerId + "</td>");
+                    $('table').append(tr);
+                }
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    });
+</script>
+
+<table id="Table" class="table table-bordered table-hover table-responsive table-striped">
+
+</table>

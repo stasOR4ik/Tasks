@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "496f642f2f69e157df64fd2edc1d5f0dfd5a6da6"
+    "signature": "7f04300101d2b1d146974273c19fbe08db798e37"
   },
   "compilationOptions": {
     "defines": [
@@ -27,7 +27,9 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.0-rc1-final",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "2.0.0-preview1-final",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.0-rc1-final",
-          "Microsoft.NETCore.App": "2.0.0"
+          "Microsoft.NETCore.App": "2.0.0",
+          "Microsoft.jQuery.Unobtrusive.Ajax": "3.2.5",
+          "jQuery": "3.3.1"
         },
         "runtime": {
           "MusicSite.dll": {}
@@ -36,6 +38,7 @@
           "MusicSite.dll": {}
         }
       },
+      "jQuery/3.3.1": {},
       "Libuv/1.10.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0"
@@ -2278,6 +2281,11 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
+      "Microsoft.jQuery.Unobtrusive.Ajax/3.2.5": {
+        "dependencies": {
+          "jQuery": "3.3.1"
+        }
+      },
       "Microsoft.Net.Http.Headers/2.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "2.1.0-rc1-final",
@@ -4049,6 +4057,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "jQuery/3.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tYajvLpBj04iqObTE+KDX172vu9Ifgja17CSezuBAI0nJt5CgsTcQqMX356F8S6z98VZ2k5EAesPNMvwshPhZQ==",
+      "path": "jquery/3.3.1",
+      "hashPath": "jquery.3.3.1.nupkg.sha512"
+    },
     "Libuv/1.10.0": {
       "type": "package",
       "serviceable": true,
@@ -5161,6 +5176,13 @@
       "sha512": "sha512-SsJbZVPvjSlKFDAQmR2wpL6ZD/vCFlIsf0jxRlBJwyzKXZy3Wi/Xo+fE2MzAerLsJgG1UCdtplRwqDyq1euayw==",
       "path": "microsoft.identitymodel.tokens/5.1.4",
       "hashPath": "microsoft.identitymodel.tokens.5.1.4.nupkg.sha512"
+    },
+    "Microsoft.jQuery.Unobtrusive.Ajax/3.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NBjWsx9UwnDbyFzZHQSi79VAWLzFwB3kdmd2OMg7xvSemQoM1KK5Pu2AisyGucC22igqjlPQZiv2c82Agzlsuw==",
+      "path": "microsoft.jquery.unobtrusive.ajax/3.2.5",
+      "hashPath": "microsoft.jquery.unobtrusive.ajax.3.2.5.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.0.2": {
       "type": "package",

@@ -21,12 +21,5 @@ namespace MusicSite
         public string Text { get; set; }
         public int SingerId { get; set; }
         public int AlbumId { get; set; }
-
-        public static string ConvertTextIfNull(string text)
-        {
-            if (text == null)
-                return "-";
-            return text;
-        }
     }
 }
