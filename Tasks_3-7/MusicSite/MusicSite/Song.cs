@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MusicSite
 {
-    public class Song
+    public partial class Song
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Text { get; set; }
+        public int SingerId { get; set; }
+        public int AlbumId { get; set; }
+
+        public Album Album { get; set; }
+        public Singer Singer { get; set; }
+
+        public Song() { }
+
         public Song(int id, string name, string text, int singerId, int albumId)
         {
             Id = id;
@@ -15,11 +24,5 @@ namespace MusicSite
             SingerId = singerId;
             AlbumId = albumId;
         }
-
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Text { get; set; }
-        public int SingerId { get; set; }
-        public int AlbumId { get; set; }
     }
 }

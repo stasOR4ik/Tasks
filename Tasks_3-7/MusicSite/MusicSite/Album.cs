@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MusicSite
 {
-    public class Album
+    public partial class Album
     {
-        public Album() { }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int SingerId { get; set; }
+
+        public Singer Singer { get; set; }
+        public ICollection<Song> Songs { get; set; }
+
+        public Album()
+        {
+            Songs = new HashSet<Song>();
+        }
 
         public Album(int id, string name, int singerId)
         {
@@ -16,8 +24,5 @@ namespace MusicSite
             SingerId = singerId;
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int SingerId { get; set; }
     }
 }

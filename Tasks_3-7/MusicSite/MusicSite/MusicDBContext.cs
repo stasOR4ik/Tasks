@@ -16,9 +16,9 @@ namespace MusicSite
         {
         }
 
-        public virtual DbSet<Albums> Albums { get; set; }
-        public virtual DbSet<Singers> Singers { get; set; }
-        public virtual DbSet<Songs> Songs { get; set; }
+        public virtual DbSet<Album> Albums { get; set; }
+        public virtual DbSet<Singer> Singers { get; set; }
+        public virtual DbSet<Song> Songs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,7 +31,7 @@ namespace MusicSite
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Albums>(entity =>
+            modelBuilder.Entity<Album>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
@@ -46,7 +46,7 @@ namespace MusicSite
                     .HasConstraintName("FK_Albums_Singers");
             });
 
-            modelBuilder.Entity<Singers>(entity =>
+            modelBuilder.Entity<Singer>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
@@ -55,7 +55,7 @@ namespace MusicSite
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Songs>(entity =>
+            modelBuilder.Entity<Song>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 

@@ -8,12 +8,17 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 10px;
 }
 
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
+}
+
+.table {
+    margin-top: 10px;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
