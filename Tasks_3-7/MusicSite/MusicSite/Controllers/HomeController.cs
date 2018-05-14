@@ -7,28 +7,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MusicSite.Models;
+using MusicSite.Models.Repositories;
 using Newtonsoft.Json;
 
 namespace MusicSite.Controllers
 {
     public class HomeController : Controller
     {
+        IRepository<Song> songDB;
+        IRepository<Singer> singerDB;
+        IRepository<Album> albumDB;
+
+        public HomeController()
+        {
+            songDB = new SongRepository();
+            singerDB = new SingerRepository();
+            albumDB = new AlbumRepository();
+        }
+
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 

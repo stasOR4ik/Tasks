@@ -11,6 +11,14 @@ namespace MusicSite
             Songs = new HashSet<Song>();
         }
 
+        public Singer(int id, string name)
+        {
+            Id = id;
+            Name = name;
+            Albums = new HashSet<Album>();
+            Songs = new HashSet<Song>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
 
