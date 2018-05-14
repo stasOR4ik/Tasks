@@ -14,15 +14,17 @@ namespace MusicSite.Controllers
 {
     public class HomeController : Controller
     {
-        IRepository<Song> songDB;
-        IRepository<Singer> singerDB;
-        IRepository<Album> albumDB;
+        MusicDBContext context;
+        MusicRepository<Song> songDb;
+        MusicRepository<Singer> singerDb;
+        MusicRepository<Album> albumDb;
 
         public HomeController()
         {
-            songDB = new SongRepository();
-            singerDB = new SingerRepository();
-            albumDB = new AlbumRepository();
+            context = new MusicDBContext();
+            songDb = new MusicRepository<Song>(context);
+            singerDb = new MusicRepository<Singer>(context);
+            albumDb = new MusicRepository<Album>(context); 
         }
 
         public IActionResult Index()

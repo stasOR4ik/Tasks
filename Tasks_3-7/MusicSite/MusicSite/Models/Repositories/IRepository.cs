@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MusicSite
@@ -9,11 +10,11 @@ namespace MusicSite
         where T : class
     {
         IEnumerable<T> GetAllList();
-        IEnumerable<T> GetAllById(int id);
-        T GetObject(int id);
+        IEnumerable<T> GetAllBy(Expression<Func<T, bool>> predicate);
+        T GetBy(Expression<Func<T, bool>> predicate);
         void Create(T item);
         void Update(T item);
-        void Delete(int id);
+        void Delete(Expression<Func<T, bool>> predicate);
         void Save();
     }
 }
