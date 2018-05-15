@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "7f04300101d2b1d146974273c19fbe08db798e37"
+    "signature": "26d9511ea335cab612e5589305c97ce4a5774180"
   },
   "compilationOptions": {
     "defines": [
@@ -23,12 +23,15 @@
     ".NETCoreApp,Version=v2.0": {
       "MusicSite/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.2.0",
           "Microsoft.AspNetCore.All": "2.0.6",
+          "Microsoft.EntityFrameworkCore": "2.1.0-rc1-final",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.0-rc1-final",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "2.0.0-preview1-final",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.0-rc1-final",
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.jQuery.Unobtrusive.Ajax": "3.2.5",
+          "System.Configuration.ConfigurationManager": "4.5.0-rc1",
           "jQuery": "3.3.1"
         },
         "runtime": {
@@ -36,6 +39,16 @@
         },
         "compile": {
           "MusicSite.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         }
       },
       "jQuery/3.3.1": {},
@@ -2792,6 +2805,18 @@
           "System.Threading": "4.3.0"
         }
       },
+      "System.Configuration.ConfigurationManager/4.5.0-rc1": {
+        "dependencies": {
+          "System.Security.Cryptography.ProtectedData": "4.5.0-rc1",
+          "System.Security.Permissions": "4.5.0-rc1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+        }
+      },
       "System.Console/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -3567,6 +3592,20 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Security.Cryptography.ProtectedData/4.5.0-rc1": {
+        "dependencies": {
+          "System.Memory": "4.5.0-rc1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
       "System.Security.Cryptography.X509Certificates/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -3612,6 +3651,17 @@
         },
         "compile": {
           "ref/netstandard2.0/System.Security.Cryptography.Xml.dll": {}
+        }
+      },
+      "System.Security.Permissions/4.5.0-rc1": {
+        "dependencies": {
+          "System.Security.AccessControl": "4.5.0-rc1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
         }
       },
       "System.Security.Principal/4.3.0": {
@@ -4056,6 +4106,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EntityFramework/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
+      "path": "entityframework/6.2.0",
+      "hashPath": "entityframework.6.2.0.nupkg.sha512"
     },
     "jQuery/3.3.1": {
       "type": "package",
@@ -5527,6 +5584,13 @@
       "path": "system.componentmodel.typeconverter/4.3.0",
       "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
+    "System.Configuration.ConfigurationManager/4.5.0-rc1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vXFSXT0eiZZAacpSv/ECSA25Xz2FoiC70S4HZsHGJiZEzAG/jpOPfxkmdFFAChAbgmizjYH3U3lRC/Fbe6BEFQ==",
+      "path": "system.configuration.configurationmanager/4.5.0-rc1",
+      "hashPath": "system.configuration.configurationmanager.4.5.0-rc1.nupkg.sha512"
+    },
     "System.Console/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5933,6 +5997,13 @@
       "path": "system.security.cryptography.primitives/4.3.0",
       "hashPath": "system.security.cryptography.primitives.4.3.0.nupkg.sha512"
     },
+    "System.Security.Cryptography.ProtectedData/4.5.0-rc1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aI7llk5Pmx/pZoAa8RNXYgZl9VzMPXO0e9NMuZnjTEXO7r0KDcq3EWh8VoJ4VC+4aurVUjmkTfNVUhIGO3qnXQ==",
+      "path": "system.security.cryptography.protecteddata/4.5.0-rc1",
+      "hashPath": "system.security.cryptography.protecteddata.4.5.0-rc1.nupkg.sha512"
+    },
     "System.Security.Cryptography.X509Certificates/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5946,6 +6017,13 @@
       "sha512": "sha512-1Xubvo4i+K+DO6YzVh6vBKmCl5xx/cAoiJEze6VQ+XwVQU25KQC9pPrmniz2EbbJnmoQ5Rm2FFjHsfQAi0Rs+Q==",
       "path": "system.security.cryptography.xml/4.4.0",
       "hashPath": "system.security.cryptography.xml.4.4.0.nupkg.sha512"
+    },
+    "System.Security.Permissions/4.5.0-rc1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jUT+xmY7pEUA8XermhhPAY1BHq95i1e4jCwwPiVdTe98FasuMhPEbOaYas+O2iiU6pmHcU5+Be9i70lvbfZHqg==",
+      "path": "system.security.permissions/4.5.0-rc1",
+      "hashPath": "system.security.permissions.4.5.0-rc1.nupkg.sha512"
     },
     "System.Security.Principal/4.3.0": {
       "type": "package",

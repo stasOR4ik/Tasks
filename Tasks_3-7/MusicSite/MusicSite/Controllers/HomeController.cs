@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MusicSite.Models;
 using MusicSite.Models.Repositories;
@@ -15,10 +10,12 @@ namespace MusicSite.Controllers
     public class HomeController : Controller
     {
         MusicDbContextRepository dbRepository;
+        StorageProcedure procedure;
 
         public HomeController()
         {
             dbRepository = new MusicDbContextRepository();
+            procedure = new StorageProcedure();
         }
 
         public IActionResult Index()
@@ -31,35 +28,13 @@ namespace MusicSite.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public string SafeGetString(SqlDataReader reader, int index)
+        public List<Song> RenameSongsTextsIfNull(List<Song> songs)
         {
-            if (!reader.IsDBNull(index))
-                return reader.GetString(index);
-            return string.Empty;
-        }
-
-        public List<Album> AddAlbumsToList(SqlDataReader reader)
-        {
-            List<Album> albums = new List<Album>();
-            if (reader.HasRows)
+            foreach(Song song in songs)
             {
-                while (reader.Read())
+                if (song.Text == null)
                 {
-                    albums.Add(new Album(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2)));
-                }
-            }
-            return albums;
-        }
-
-        public List<Song> AddSongsToList(SqlDataReader reader)
-        {
-            List<Song> songs = new List<Song>();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    songs.Add(new Song(reader.GetInt32(0), reader.GetString(1), SafeGetString(reader, 2),
-                        reader.GetInt32(3), reader.GetInt32(4)));
+                    song.Text = "";
                 }
             }
             return songs;
@@ -67,23 +42,17 @@ namespace MusicSite.Controllers
 
         public string ConvertToJsonAlbumsTakingBySingerId(int singerId)
         {
-            StorageProcedure procedure = new StorageProcedure();
-            SqlDataReader reader = procedure.TableAlbumsTakingBySingerId(singerId);
-            return JsonConvert.SerializeObject(AddAlbumsToList(reader));
+            return JsonConvert.SerializeObject(procedure.TableAlbumsTakingBySingerId(singerId));
         }
 
         public string ConvertToJsonSongsTakingBySingerId(int singerId)
         {
-            StorageProcedure procedure = new StorageProcedure();
-            SqlDataReader reader = procedure.TableSongsTakingBySingerId(singerId);
-            return JsonConvert.SerializeObject(AddSongsToList(reader));
+            return JsonConvert.SerializeObject(RenameSongsTextsIfNull(procedure.TableSongsTakingBySingerId(singerId)));
         }
 
         public string ConvertToJsonSongsTakingByAlbumId(int albumId)
         {
-            StorageProcedure procedure = new StorageProcedure();
-            SqlDataReader reader = procedure.TableSongsTakingByAlbumId(albumId);
-            return JsonConvert.SerializeObject(AddSongsToList(reader));
+            return JsonConvert.SerializeObject(RenameSongsTextsIfNull(procedure.TableSongsTakingByAlbumId(albumId)));
         }
     }
 }
