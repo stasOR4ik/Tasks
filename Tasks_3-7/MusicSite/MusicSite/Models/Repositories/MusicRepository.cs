@@ -10,15 +10,14 @@ namespace MusicSite.Models.Repositories
     public class MusicRepository<T> : IRepository<T>
         where T : class
     {
-        private DbContext dbContext;
-        private DbSet<T> db;
+        MusicDBContext dbContext;
+        public DbSet<T> db;
 
-        public MusicRepository(DbContext context)
+        public MusicRepository()
         {
-            dbContext = context;
-            db = context.Set<T>();
+            dbContext = new MusicDBContext();
+            db = dbContext.Set<T>();
         }
-
 
         public void Create(T item)
         {

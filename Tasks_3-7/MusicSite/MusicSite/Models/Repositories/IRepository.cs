@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicSite
 {
-    interface IRepository<T>
+    public interface IRepository<T>
         where T : class
     {
         IEnumerable<T> GetAllList();

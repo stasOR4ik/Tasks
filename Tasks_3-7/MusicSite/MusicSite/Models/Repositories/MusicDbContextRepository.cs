@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace MusicSite.Models.Repositories
 {
-    public class MusicDbContextRepository
+    public class MusicDbContextRepository :  IMusicDbContextRepository
     {
-        MusicDBContext context;
-        public MusicRepository<Song> Songs { get; set; }
-        public MusicRepository<Singer> Singers { get; set; }
-        public MusicRepository<Album> Albums { get; set; }
+        public IRepository<Song> Songs { get; set; }
+        public IRepository<Singer> Singers { get; set; }
+        public IRepository<Album> Albums { get; set; }
 
-        public MusicDbContextRepository()
+        public MusicDbContextRepository(IRepository<Song> songs, IRepository<Singer> singers, IRepository<Album> albums)
         {
-            context = new MusicDBContext();
-            Songs = new MusicRepository<Song>(context);
-            Singers = new MusicRepository<Singer>(context);
-            Albums = new MusicRepository<Album>(context);
+            Songs = songs;
+            Singers = singers;
+            Albums = albums;
         }
+
+
     }
 }
